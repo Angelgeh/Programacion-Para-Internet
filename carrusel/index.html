@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrusel de Fotos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="carousel">
+  <div class="slides">
+    <img src="imagen1.jpg" alt="Imagen 1">
+    <img src="imagen2.jpg" alt="Imagen 2">
+    <img src="imagen3.jpg" alt="Imagen 3">
+    <!-- Agrega más imágenes si es necesario -->
+  </div>
+  <button class="prev" onclick="prevSlide()">❮</button>
+  <button class="next" onclick="nextSlide()">❯</button>
+</div>
+
+<script>
+    let slideIndex = 0;
+    let timer;
+    
+    function showSlide(n) {
+      const slides = document.getElementsByClassName("slides")[0].getElementsByTagName("img");
+      if (n >= slides.length) {
+        slideIndex = 0;
+      }
+      if (n < 0) {
+        slideIndex = slides.length - 1;
+      }
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex].style.display = "block";
+    }
+    
+    function prevSlide() {
+      clearTimeout(timer);
+      showSlide(--slideIndex);
+    }
+    
+    function nextSlide() {
+      clearTimeout(timer);
+      showSlide(++slideIndex);
+    }
+    
+    function startSlideShow() {
+      timer = setTimeout(function() {
+        showSlide(++slideIndex);
+        startSlideShow();
+      }, 3000); // Cambiar 3000 por el tiempo en milisegundos que desees entre cada imagen (3 segundos en este caso)
+    }
+    
+    // Mostrar la primera imagen al cargar la página
+    showSlide(slideIndex);
+    
+    // Iniciar el carrusel automáticamente al cargar la página
+    startSlideShow();
+    
+    
+</script>
+
+</body>
+</html>
