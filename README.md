@@ -8,4 +8,4 @@ para instalar esta practica fue necesario el colocar en la linea de comando o cm
 ##capturas de pantalla
 ![Quiza se vea muy basico pero con la ayuda de nodejs y el video levante un servidor para poder imprimir mi pagina](./images/imagen1.png)
 
-![imagen de prueba de este](URL_de_la_imagen)
+![imagen de prueba de este](./images/imagen2.png)
